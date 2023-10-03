@@ -1,34 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-/**
- * 01. Add heading using Javascript
- */
-const jsHeading = document.createElement("h1");
-jsHeading.innerHTML = "Hello World From Javascript!";
+const Header = () => {
+  return (
+    <>
+      <header className="header">
+        <div className="left">
+          <img src="" alt="Logo" />
+        </div>
+        <div className="center">
+          <input
+            className="input"
+            type="text"
+            placeholder="Search anything you want..."
+          />
+          <button type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+        <div className="right">
+          <img src="" alt="User Icon" />
+        </div>
+      </header>
+    </>
+  );
+};
 
-const jsRroot = document.getElementById("root");
-jsRroot.appendChild(jsHeading);
-
-/**
- * 02. Add heading using React
- */
-const reactHeading = React.createElement("h1", {}, "Hello World From React!");
-const reactRoot = ReactDOM.createRoot(document.getElementById("root"));
-reactRoot.render(reactHeading);
-
-/**
- * Add nested HTML
- */
-const nested = React.createElement("div", { id: "parent" }, [
-  React.createElement("div", { id: "child1" }, [
-    React.createElement("h1", {}, "dddddHello, Iam H1 Tag Inside Child 1."),
-    React.createElement("h2", {}, "Hello, Iam H2 Tag."),
-  ]),
-  React.createElement("div", { id: "child2" }, [
-    React.createElement("h1", {}, "Hello, Iam H1 Tag Child 2."),
-    React.createElement("h2", {}, "Hello, Iam H2 Tag Child 2."),
-  ]),
-]);
-
-reactRoot.render(nested);
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<Header />);
